@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "HonestCart",
+  "version": "1.0.0",
+  "description": "Bypass fake reviews and SEO spam. HonestCart instantly surfaces real, unbiased Reddit discussions right on the product page.",
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "host_permissions": [
+    "*://*.amazon.com/*",
+    "*://www.reddit.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.amazon.com/*"],
+      "css": ["sidebar.css"],
+      "js": ["content.js"]
+    }
+  ],
+  "action": {
+    "default_title": "Toggle HonestCart"
+  }
+}
